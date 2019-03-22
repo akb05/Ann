@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Introduction - read carefully
+{% endblock %}
+
+{% block content %}
+    {% include 'trust/instructions.html'%}
+    {% include 'trust/role_block.html'%}
+
+
+    {% next_button %}
+
+{% endblock %}

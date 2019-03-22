@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block content %}
+   {% if session.config.treatment%}
+       <div>class="alert">Hi Dude~</div>
+    {% else %}
+       <div>class="alert">Good afternoon~</div>
+    {% endif %}
+    {% formfields %}
+   {% next_button %}
+
+{% endblock %}

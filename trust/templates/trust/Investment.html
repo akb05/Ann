@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Investment
+{% endblock %}
+
+{% block content %}
+     {% include 'trust/role_block.html'%}
+    Your endowment is: {{ Constants.endowment }}
+     {% formfields %}
+
+    {% next_button %}
+     {% include 'trust/instructions.html'%}
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+        alert('HELLO');
+    </script>
+{% endblock %}

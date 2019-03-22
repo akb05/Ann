@@ -1,0 +1,58 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+    <h5>Your information:</h5>>
+    <table class="table table-hover table-striped">
+        <tr>
+            <td>Your age:</td>
+            <td>{{ player.age }}</td>
+        </tr>
+        <tr>
+            <td>Your gender:</td>
+            <td>{{ player.gender }}</td>
+        </tr>
+        <tr>
+            <td>Your income:</td>
+            <td>{{ player.income }}</td>
+        </tr>
+        <tr>
+            <td>Years till retirement:</td>
+            <td>{{ player.get_years_till_retirement }}</td>
+        </tr>
+    </table>
+
+
+    <h5>Your partner information:</h5>>
+    <table class="table table-hover table-striped">
+        {% for other in player.get_others_in_group %}
+            {% if other.reveal %}
+
+                <tr>
+                    <td>Your partner age:</td>
+                    <td>{{ other.age }}</td>
+                </tr>
+                <tr>
+                    <td>Your partner gender:</td>
+                    <td>{{ other.gender }}</td>
+                </tr>
+                <tr>
+                    <td>Your partner income:</td>
+                    <td>{{ other.income }}</td>
+                </tr>
+                <tr>
+                    <td>Years partners time till retirement:</td>
+                    <td>{{ other.get_years_till_retirement }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+
+    </table>
+    {% next_button %}
+{% endblock %}
+

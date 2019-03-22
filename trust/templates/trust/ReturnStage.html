@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Return decision
+{% endblock %}
+
+{% block content %}
+     {% include 'trust/role_block.html'%}
+     #{% include 'trust/instructions.html'%}
+    <div> trustor decides to send you: {{ group.investment }} </div>
+    <div> Multiplied amount is: {{ group.multiplied_investment }}</div>
+    <div class="alert alert-info"> you can send anything back from 0 to {{ group.multiplied_investment }} </div>
+
+     {% formfields %}
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Page title
+{% endblock %}
+{% block content %}
+    <table class="table-hover table table-striped">
+    <tr>
+        <td> You started with an endowment of: </td>
+        <td> {{ player.endowment }}  </td>
+    <tr>
+    <tr>
+        <td> of which you contributed:  </td>
+        <td>{{ player.contribution }}. </td>
+        <tr>
+    <tr>
+        <td> Your group (you and other group members) contributed:  </td>
+        <td> {{ group.total_contribution }}</td>
+    <tr>
+    <tr>
+        <td> >resulting in an individual share of (contribution*efficiency factor)  </td>
+        <td> {{ group.individual_share }} </td>
+        <tr>
+    <tr>
+        <td> Your payoff is therefore </td>
+        <td> {{ player.payoff }} </td>
+    </tr>
+
+    </table>
+    {% next_button %}
+
+    {% if player.round_number > 1 %}
+        <h5> In previous rounds:</h5>
+        {% for p in player.in_previous_rounds %}
+            <div>
+               ,
+                And your group average contribution in this round was {{ p.group.average_contribution }}
+
+            </div>
+
+        {% endfor %}
+    {% endif %}
+
+
+    <h5> Other group members´ info:</h5>
+
+    {% for o in player.get_others_in_group %}
+        <div> Player {{ o.id_in_group }}: Contribution:{{ o.contribution }}; Payoff:{{ o.payoff }} </div>
+    {% endfor %}
+
+{% endblock %}

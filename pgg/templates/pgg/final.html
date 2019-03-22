@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    FInal page: Your are done
+{% endblock %}
+
+{% block content %}
+    Please come to collect your money
+    <br>
+
+    Your final payoff is: {{ participant.payoff }}
+    {% next_button %}
+
+{% endblock %}

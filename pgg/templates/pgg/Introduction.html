@@ -1,0 +1,13 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Welcome to our study
+    Introduction - read carefully
+{% endblock %}
+
+{% block content %}
+    {% include 'pgg/instruction/instructions.html'%}
+    {% next_button %}
+
+{% endblock %}

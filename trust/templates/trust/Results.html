@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+   Results
+{% endblock %}
+
+{% block content %}
+     {% include 'trust/role_block.html'%}
+
+    {% if player.role == 'trustor' %}
+        DO SOMETHING FPR THE TRUSTOR
+    {% else %}
+        DO SOMETHING FOR THE TRUSTEE
+    {% endif %}
+
+
+    <div class=""alert alert-danger"> Your payoff is {{ player.payoff }}     </div>
+    <div>Trustors' multiplied amount is: {{ group.multiplied_investment }}</div>
+    <div>Trustor sended: {{ group.investment }}</div>
+    <div>Trustors' multiplied amount is: {{ group.multiplied_investment }}</div>
+    <div>Trustee sended: {{ group.returning_amount }}</div>
+
+
+    {% next_button %}
+{% endblock %}
+
+
